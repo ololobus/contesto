@@ -8,7 +8,7 @@ if os.path.isfile('config.yml'):
     sys.exit('App configuration already exists. Stopping...')
 
 if len(sys.argv) < 3:
-    print('Please, provide number of teams and tasks')
+    sys.exit('Please, provide number of teams and tasks')
 elif len(sys.argv) >= 3:
     teams_num = int(sys.argv[1])
     tasks_num = int(sys.argv[2])
