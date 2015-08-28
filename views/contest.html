@@ -32,6 +32,7 @@
               <table class="table table-hover">
                 <thead>
                   <tr>
+                    <th>#</th>
                     <th>Team</th>
                     <th>{{ tasks[tkid]['score_name'] }}</th>
                     <th>Details</th>
@@ -39,11 +40,12 @@
                 </thead>
                 <tbody>
                   {% for team in tasks[tkid]['teams'] %}
-                    {% if team['results'][tkid]['score'] %}
+                    {% if team[1]['results'][tkid]['score'] %}
                       <tr>
-                        <td>{{ team['name'] }}</td>
-                        <td>{{ team['results'][tkid]['score'] }}</td>
-                        <td>{{ team['results'][tkid]['details'] }}</td>
+                        <td>{{ team[0] }}</td>
+                        <td>{{ team[1]['name'] }}</td>
+                        <td>{{ team[1]['results'][tkid]['score'] }}</td>
+                        <td>{{ team[1]['results'][tkid]['details'] }}</td>
                       </tr>
                     {% end %}
                   {% end %}

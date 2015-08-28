@@ -24,11 +24,15 @@ class MainHandler(RequestHandler):
     def get(self):
         config = yaml.load(open('config.yml', 'r'))
         orders = { 'ASC': False, 'DESC': True }
-        # self.write('Everithing is ok')
+
         teams = config['teams']
         tasks = config['tasks']
+
         for tkid in tasks.keys():
-            tasks[tkid]['teams'] = sorted(list(teams.values()), key = lambda x: x['results'][tkid]['score'], reverse = orders[tasks[tkid]['direction']])
+            task_teams = filter(lambda t: t['results'][tkid]['score'], list(teams.values()))
+            task_teams = sorted(task_teams, key = lambda x: x['results'][tkid]['score'], reverse = orders[tasks[tkid]['direction']])
+
+            tasks[tkid]['teams'] = zip(range(1, len(task_teams) + 1, 1), task_teams)
 
         self.render('contest.html', teams = teams, tasks = tasks)
 
