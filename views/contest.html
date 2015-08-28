@@ -1,0 +1,66 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>Contesto</title>
+<link rel="stylesheet" type="text/css" href="{{static_url("css/contest.css")}}">
+</head>
+<body>
+
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="/">Contesto</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-1"></div>
+      <div class="col-md-10">
+        <ul class="nav nav-tabs tasks_tabs" role="tablist">
+          {% for tkid in tasks %}
+            <li role="presentation">
+              <a href="#task{{ tkid }}" role="tab" aria-controls="task{{ tkid }}" data-toggle="tab">{{ tasks[tkid]['name'] }}</a>
+            </li>
+          {% end %}
+        </ul>
+        <div class="tab-content">
+          {% for tkid in tasks %}
+            <div role="tabpanel" class="tab-pane" id="task{{ tkid }}">
+              <table class="table table-hover">
+                <thead>
+                  <tr>
+                    <th>Team</th>
+                    <th>{{ tasks[tkid]['score_name'] }}</th>
+                    <th>Details</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for team in tasks[tkid]['teams'] %}
+                    {% if team['results'][tkid]['score'] %}
+                      <tr>
+                        <td>{{ team['name'] }}</td>
+                        <td>{{ team['results'][tkid]['score'] }}</td>
+                        <td>{{ team['results'][tkid]['details'] }}</td>
+                      </tr>
+                    {% end %}
+                  {% end %}
+                </tbody>
+              </table>
+            </div>
+          {% end %}
+        </div>
+      </div>
+      <div class="col-md-1"></div>
+    </div>
+  </div>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  <script src="{{static_url("js/contest.js")}}"></script>
+
+</body>
+</html>
