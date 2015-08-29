@@ -43,7 +43,7 @@
                   {% for team in tasks[tkid]['teams'] %}
                     <tr>
                       <td>{{ team[0] }}</td>
-                      <td>{{ team[1]['name'] }}</td>
+                      <td class="team_name_cell">{{ team[1]['name'] }}</td>
                       <td>{{ team[1]['results'][tkid]['score'] }}</td>
                       <td>{{ team[1]['results'][tkid]['details'] }}</td>
                     </tr>
