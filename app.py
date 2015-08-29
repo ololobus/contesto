@@ -29,7 +29,7 @@ class MainHandler(RequestHandler):
         tasks = config['tasks']
 
         for tkid in tasks.keys():
-            task_teams = filter(lambda t: t['results'][tkid]['score'], list(teams.values()))
+            task_teams = filter(lambda t: t['results'][tkid]['score'] or t['results'][tkid]['score'] == 0, list(teams.values()))
             task_teams = sorted(task_teams, key = lambda x: x['results'][tkid]['score'], reverse = orders[tasks[tkid]['direction']])
 
             tasks[tkid]['teams'] = zip(range(1, len(task_teams) + 1, 1), task_teams)
