@@ -29,6 +29,8 @@
         <div class="tab-content">
           {% for tkid in tasks %}
             <div role="tabpanel" class="tab-pane" id="task{{ tkid }}">
+              <br>
+              <div class="alert alert-success" role="alert">{{ tasks[tkid]['description'] }}</div>
               <table class="table table-hover">
                 <thead>
                   <tr>
