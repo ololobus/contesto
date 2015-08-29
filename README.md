@@ -2,7 +2,7 @@ Contesto
 ========
 Scafold and lightweight web application for competiotions (hackathon, contests, etc).
 
-Quck start
+Quick start
 ----------
 
 Generate e.g. 10 default teams and 3 cases
