@@ -10,7 +10,7 @@ Generate e.g. 10 default teams and 3 cases
   python generator.py 10 3
 ```
 
-Edit `config.yml` to change names, descriptions, competiotion parameters and ordering directions.
+Edit `config.yml` to change names, descriptions, competition parameters and ordering directions.
 
 Run web application
 ```
